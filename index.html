@@ -44,7 +44,7 @@
                 <div class="text-4xl bg-white/20 p-3 rounded-2xl backdrop-blur-sm">🚀</div>
             </div>
 
-            <!-- AREA TAMPILAN MATERI / HALAMAN BELAJAR -->
+            <!-- AREA TAMPILAN MATERI -->
             <div id="content-area" class="mb-6 bg-blue-50 border border-blue-200 p-4 rounded-2xl shadow-sm">
                 <h3 id="materi-title" class="font-bold text-blue-800 text-sm mb-1"><i class="fa-solid fa-circle-info"></i> Pilih Menu Belajar</h3>
                 <p id="materi-desc" class="text-xs text-gray-600">Pilih salah satu dari 8 menu di bawah untuk mulai belajar materinya!</p>
@@ -54,14 +54,14 @@
                 </div>
             </div>
 
-            <!-- HALAMAN RUANG BELAJAR (KONTEN UTAMA) -->
+            <!-- RUANG BELAJAR -->
             <div id="learning-room" class="hidden mb-6 bg-white border border-gray-200 p-4 rounded-2xl shadow-md">
                 <div class="flex justify-between items-center mb-3">
                     <h3 id="room-title" class="font-bold text-indigo-700 text-base">Ruang Belajar</h3>
                     <button onclick="tutupRuangBelajar()" class="text-xs bg-red-100 text-red-600 px-2.5 py-1 rounded-lg font-bold">Tutup ✕</button>
                 </div>
                 <div id="room-content" class="text-xs text-gray-700 space-y-2">
-                    <!-- Konten interaktif tampil di sini -->
+                    <!-- Konten dinamis -->
                 </div>
             </div>
 
@@ -140,7 +140,7 @@
         </nav>
     </div>
 
-    <!-- SCRIPT INTERAKTIF PEMBELAJARAN -->
+    <!-- SCRIPT KONTEN KHUSUS -->
     <script>
         let currentModule = "";
 
@@ -157,22 +157,45 @@
             const roomContent = document.getElementById('room-content');
 
             roomTitle.innerText = "Belajar: " + currentModule;
-            
-            // Konten simulasi pembelajaran interaktif di dalam aplikasi
-            roomContent.innerHTML = `
-                <p class="font-semibold text-blue-600">Selamat datang di modul ${currentModule}!</p>
-                <p>1. Silakan baca materi interaktif di layar.</p>
-                <p>2. Jawab pertanyaan latihan di bawah untuk mendapatkan bintang/poin:</p>
-                <div class="bg-gray-50 p-3 rounded-xl border my-2">
-                    <p class="font-bold text-gray-800">Pertanyaan Interaktif:</p>
-                    <p class="text-gray-600 text-[11px] mt-1">Bagaimana perasaanmu setelah mempelajari materi ini?</p>
-                    <div class="mt-2 flex space-x-2">
-                        <button onclick="tambahPoin(10)" class="bg-green-500 text-white px-3 py-1 rounded text-[11px] font-bold">Seru & Paham! 😊 (+10 Poin)</button>
+
+            if (currentModule === "Bahasa Inggris") {
+                roomContent.innerHTML = `
+                    <p class="font-semibold text-purple-600">🇬🇧 Modul Pembelajaran: Bahasa Inggris</p>
+                    <p class="text-gray-600">Mari belajar kosakata nama-nama hewan & buah:</p>
+                    <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-200 space-y-1 text-xs">
+                        <p>🐱 <b>Cat</b> = Kucing</p>
+                        <p>🐶 <b>Dog</b> = Anjing</p>
+                        <p>🍎 <b>Apple</b> = Apel</p>
+                        <p>🍌 <b>Banana</b> = Pisang</p>
                     </div>
-                </div>
-            `;
+                    <div class="bg-gray-50 p-3 rounded-xl border mt-3">
+                        <p class="font-bold text-gray-800">Kuis Mini:</p>
+                        <p class="text-gray-600 text-[11px] mt-1">Apa bahasa Inggrisnya "Kucing"?</p>
+                        <div class="mt-2 flex space-x-2">
+                            <button onclick="jawabKuis(true)" class="bg-green-500 text-white px-3 py-1 rounded text-[11px] font-bold">Cat 🌟 (+15 Poin)</button>
+                            <button onclick="jawabKuis(false)" class="bg-red-500 text-white px-3 py-1 rounded text-[11px] font-bold">Fish</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                roomContent.innerHTML = `
+                    <p class="font-semibold text-blue-600">Selamat datang di modul ${currentModule}!</p>
+                    <p>Silakan pelajari materi interaktif di layar.</p>
+                    <button onclick="tambahPoin(10)" class="bg-green-500 text-white px-3 py-1 rounded text-[11px] font-bold mt-2">Selesai Belajar 😊 (+10 Poin)</button>
+                `;
+            }
+
             room.classList.remove('hidden');
             room.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function jawabKuis(isCorrect) {
+            if (isCorrect) {
+                tambahPoin(15);
+                alert("Jawaban Benar! Kamu hebat sekali! 🎉");
+            } else {
+                alert("Kurang tepat, coba lagi ya! 💪");
+            }
         }
 
         function tutupRuangBelajar() {
@@ -184,7 +207,6 @@
             let currentScore = parseInt(scoreElem.innerText) || 120;
             currentScore += jumlah;
             scoreElem.innerText = currentScore + " Poin";
-            alert("Yeay! Kamu mendapatkan +" + jumlah + " poin tambahan! 🌟");
         }
 
         function navAction(menuName) {
