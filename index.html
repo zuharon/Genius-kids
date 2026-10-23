@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Kids - 8 Aplikasi Belajar Anak</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+        body { font-family: 'Fredoka', sans-serif; background-color: #f0f4f8; }
+        .app-container { max-width: 480px; margin: 0 auto; min-height: 100vh; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative; display: flex; flex-direction: column; }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center">
+
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 text-white flex justify-between items-center rounded-b-3xl shadow-md">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white p-2 rounded-full text-blue-600 font-bold text-xl shadow">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Genius Kids</h1>
+                    <p class="text-xs text-blue-100">Halo, Anak Hebat! 👋</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 bg-white/20 px-3 py-1.5 rounded-full text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-star text-yellow-300"></i>
+                <span id="score" class="font-bold">120 Poin</span>
+            </div>
+        </header>
+
+        <!-- KONTEN UTAMA -->
+        <main class="flex-1 p-4 pb-20 overflow-y-auto">
+            <!-- BANNER HERO -->
+            <div class="bg-gradient-to-r from-amber-400 to-orange-500 rounded-2xl p-4 text-white mb-6 shadow-lg flex justify-between items-center relative overflow-hidden">
+                <div class="z-10">
+                    <span class="bg-white/30 text-xs px-2.5 py-1 rounded-full font-semibold">Paket Lengkap 8-in-1</span>
+                    <h2 class="text-xl font-bold mt-2">Belajar Lebih Seru!</h2>
+                    <p class="text-xs text-amber-100 mt-1">1.000+ Worksheet & Cerita Interaktif</p>
+                </div>
+                <div class="text-4xl bg-white/20 p-3 rounded-2xl backdrop-blur-sm">
+                    🚀
+                </div>
+            </div>
+
+            <!-- GRID 8 APLIKASI BELAJAR -->
+            <div class="mb-4 flex justify-between items-center">
+                <h3 class="font-bold text-gray-700 text-base">8 Menu Belajar Utama</h3>
+                <span class="text-xs text-blue-600 font-semibold">Pilih & Mainkan</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <!-- Menu 1 -->
+                <div onclick="openModule('Genius Kids: Cerita Cerdas')" class="bg-pink-50 border border-pink-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">📖</span>
+                    <h4 class="font-bold text-xs text-gray-800">1. Genius Kids</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Cerita cerdas untuk anak hebat</p>
+                </div>
+                <!-- Menu 2 -->
+                <div onclick="openModule('Bahasa Arab')" class="bg-emerald-50 border border-emerald-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">🕌</span>
+                    <h4 class="font-bold text-xs text-gray-800">2. Bahasa Arab</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Belajar bahasa Arab menyenangkan</p>
+                </div>
+                <!-- Menu 3 -->
+                <div onclick="openModule('Bahasa Indonesia')" class="bg-blue-50 border border-blue-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">🔤</span>
+                    <h4 class="font-bold text-xs text-gray-800">3. Bahasa Indonesia</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Membaca, menulis & memahami</p>
+                </div>
+                <!-- Menu 4 -->
+                <div onclick="openModule('Bahasa Inggris')" class="bg-purple-50 border border-purple-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">🇬🇧</span>
+                    <h4 class="font-bold text-xs text-gray-800">4. Bahasa Inggris</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Seru dan interaktif</p>
+                </div>
+                <!-- Menu 5 -->
+                <div onclick="openModule('Bahasa Mandarin')" class="bg-red-50 border border-red-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">🐼</span>
+                    <h4 class="font-bold text-xs text-gray-800">5. Bahasa Mandarin</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Kanal aksara & budaya</p>
+                </div>
+                <!-- Menu 6 -->
+                <div onclick="openModule('IPA (Ilmu Pengetahuan Alam)')" class="bg-teal-50 border border-teal-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">🔬</span>
+                    <h4 class="font-bold text-xs text-gray-800">6. IPA</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Eksplorasi sains di sekitar kita</p>
+                </div>
+                <!-- Menu 7 -->
+                <div onclick="openModule('IPS (Ilmu Pengetahuan Sosial)')" class="bg-amber-50 border border-amber-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">🌍</span>
+                    <h4 class="font-bold text-xs text-gray-800">7. IPS</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Mengenal masyarakat & budaya</p>
+                </div>
+                <!-- Menu 8 -->
+                <div onclick="openModule('Matematika')" class="bg-indigo-50 border border-indigo-200 p-3 rounded-2xl flex flex-col items-center text-center cursor-pointer hover:scale-105 transition shadow-sm">
+                    <span class="text-3xl mb-1">➕</span>
+                    <h4 class="font-bold text-xs text-gray-800">8. Matematika</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Belajar berhitung jadi mudah</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- BOTTOM NAVIGATION BAR -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-3 px-2 shadow-lg rounded-t-2xl">
+            <button onclick="navAction('Beranda')" class="flex flex-col items-center text-blue-600 font-semibold text-xs">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span>Beranda</span>
+            </button>
+            <button onclick="navAction('Koleksi Cerita')" class="flex flex-col items-center text-gray-400 hover:text-blue-600 text-xs">
+                <i class="fa-solid fa-book-open text-lg"></i>
+                <span>Koleksi</span>
+            </button>
+            <button onclick="navAction('Hadiah')" class="flex flex-col items-center text-gray-400 hover:text-blue-600 text-xs">
+                <i class="fa-solid fa-gift text-lg"></i>
+                <span>Hadiah</span>
+            </button>
+            <button onclick="navAction('Orang Tua')" class="flex flex-col items-center text-gray-400 hover:text-blue-600 text-xs">
+                <i class="fa-solid fa-user-shield text-lg"></i>
+                <span>Orang Tua</span>
+            </button>
+            <button onclick="navAction('Pengaturan')" class="flex flex-col items-center text-gray-400 hover:text-blue-600 text-xs">
+                <i class="fa-solid fa-gear text-lg"></i>
+                <span>Pengaturan</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- SCRIPT INTERAKTIF -->
+    <script>
+        function openModule(moduleName) {
+            alert("Membuka Modul: " + moduleName + " 🚀\n(Fitur interaktif belajar anak akan dimuat di sini).");
+        }
+
+        function navAction(menuName) {
+            if(menuName === 'Orang Tua') {
+                let pin = prompt("Masukkan PIN Orang Tua (Default: 1234):");
+                if(pin === "1234") {
+                    alert("Akses Masuk Mode Orang Tua Berhasil! Menampilkan laporan progress anak.");
+                } else if(pin !== null) {
+                    alert("PIN Salah!");
+                }
+            } else {
+                alert("Menuju menu: " + menuName);
+            }
+        }
+    </script>
+</body>
+</html>
